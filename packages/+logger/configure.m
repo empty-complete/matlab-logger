@@ -1,0 +1,16 @@
+function logFilePath = configure(varargin)
+    parser = inputParser();
+    addParameter(parser, "Level", logger.LogLevel.INFO);
+    addParameter(parser, "Console", true);
+    addParameter(parser, "File", true);
+    addParameter(parser, "FilePath", logger.Logger.defaultLogFilePath());
+    parse(parser, varargin{:});
+
+    logFilePath = string(parser.Results.FilePath);
+    logger.Logger.configure( ...
+        "Level", parser.Results.Level, ...
+        "Console", parser.Results.Console, ...
+        "File", parser.Results.File, ...
+        "FilePath", logFilePath ...
+    );
+end
