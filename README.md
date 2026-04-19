@@ -40,7 +40,15 @@ log.error("Solver failed: %s", err.message);
 
 ## Quick Start
 
-**1. Add to path**
+**1. Clone directly into your project**
+```bash
+git clone --filter=blob:none --sparse https://github.com/empty-complete/matlab-logger.git
+cd matlab-logger
+git sparse-checkout set packages
+```
+
+Then move or symlink `packages/` into your project root, or just point `addpath` at it:
+
 ```matlab
 addpath("path/to/matlab-logger/packages")
 ```
